@@ -39,7 +39,7 @@ export class AppComponent {
   }
 
   onSwitchDesktopClick() {
-    if (this.state === 'Home' || this.state === 'Desktop') {
+    if (this.state === 'Home') {
       this.state = 'Desktop';
       this.message = 'The phone is switching desktop';
     } else {
