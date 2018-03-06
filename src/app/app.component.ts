@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MessageEnum } from './message.enum';
 
 @Component({
   selector: 'app-root',
@@ -6,57 +7,47 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private state = 'Locked';
-  message = 'The phone is locked';
+  message = MessageEnum.Locked;
 
   onHomeClick() {
-    if (this.state === 'Locked') {
-      this.state = 'Unlocked';
-      this.message = 'The phone is unlocked';
+    if (this.message === MessageEnum.Locked) {
+      this.message = MessageEnum.Unlocked;
       return;
     }
 
-    if (this.state === 'Unlocked') {
-      this.state = 'Home';
-      this.message = 'The phone is at home';
+    if (this.message === MessageEnum.Unlocked) {
+      this.message = MessageEnum.Home;
       return;
     }
 
-    if (this.state === 'App') {
-      this.state = 'Home';
-      this.message = 'The phone is at home';
+    if (this.message === MessageEnum.App) {
+      this.message = MessageEnum.Home;
       return;
     }
 
-    if (this.state === 'Desktop') {
-      this.state = 'Home';
-      this.message = 'The phone is at home';
+    if (this.message === MessageEnum.Desktop) {
+      this.message = MessageEnum.Home;
       return;
     }
 
-    this.state = 'Home';
-    this.message = 'The phone is at home';
+    this.message = MessageEnum.Home;
   }
 
   onOpenAppClick() {
-    if (this.state === 'Home' || this.state === 'Desktop') {
-      this.state = 'App';
-      this.message = 'The phone is opening app';
+    if (this.message === MessageEnum.Home || this.message === MessageEnum.Desktop) {
+      this.message = MessageEnum.App;
       return;
     }
 
-    this.state = 'Null';
-    this.message = 'The operation is not allowed';
+    this.message = MessageEnum.Null;
   }
 
   onSwitchDesktopClick() {
-    if (this.state === 'Home') {
-      this.state = 'Desktop';
-      this.message = 'The phone is switching desktop';
+    if (this.message === MessageEnum.Home) {
+      this.message = MessageEnum.Desktop;
       return;
     }
 
-    this.state = 'Null';
-    this.message = 'The operation is not allowed';
+    this.message = MessageEnum.Null;
   }
 }
