@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { MessageEnum } from './message.enum';
-import { PhoneContext } from './phone.context';
-import { AppState } from './app.state';
-import { DesktopState } from './desktop.state';
+import { MessageEnum } from './phone.state/message.enum';
+import { PhoneContext } from './phone.state/phone.context';
+import { AppState } from './phone.state/app.state';
+import { DesktopState } from './phone.state/desktop.state';
 
 @Component({
   selector: 'app-root',

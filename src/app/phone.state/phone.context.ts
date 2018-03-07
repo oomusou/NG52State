@@ -15,11 +15,12 @@ export class PhoneContext {
   }
 
   setState(state: PhoneStateInterface): MessageEnum {
-    if (!state.chkContext(this.state)) {
-      return MessageEnum.Null;
-    } else {
-      this.state = state;
-      return state.getMessage();
-    }
+    const setCurrentState = (currentState) => {
+      this.state = currentState;
+      return currentState.getMessage();
+    };
+
+    return !state.chkContext(this.state) ? MessageEnum.Null :
+           setCurrentState(state);
   }
 }

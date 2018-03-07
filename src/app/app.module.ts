@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { LockedState } from './locked.state';
-import { PhoneContext } from './phone.context';
-import { PhoneStateInterfaceToken } from './interface.token';
+import { LockedState } from './phone.state/locked.state';
+import { PhoneContext } from './phone.state/phone.context';
+import { PhoneStateInterfaceToken } from './phone.state/interface.token';
 
 @NgModule({
   declarations: [

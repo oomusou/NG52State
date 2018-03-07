@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { DebugElement } from '@angular/core';
-import { LockedState } from './locked.state';
-import { PhoneContext } from './phone.context';
-import { PhoneStateInterfaceToken } from './interface.token';
+import { LockedState } from './phone.state/locked.state';
+import { PhoneContext } from './phone.state/phone.context';
+import { PhoneStateInterfaceToken } from './phone.state/interface.token';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;

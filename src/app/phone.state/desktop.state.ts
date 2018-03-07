@@ -8,11 +8,7 @@ export class DesktopState implements PhoneStateInterface {
   }
 
   chkContext(state: PhoneStateInterface): boolean {
-    if (state.getMessage() === MessageEnum.Home) {
-      return true;
-    }
-
-    return false;
+    return state.getMessage() === MessageEnum.Home;
   }
 
   handle(): PhoneStateInterface {
