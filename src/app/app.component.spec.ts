@@ -1,26 +1,32 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { DebugElement } from '@angular/core';
+import { LockedState } from './locked.state';
+import { PhoneContext } from './phone.context';
+import { PhoneStateInterfaceToken } from './interface.token';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let appComponent: AppComponent;
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
-  let target: AppComponent;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
-      ]
+      ],
+      providers: [
+        LockedState,
+        PhoneContext,
+        {provide: PhoneStateInterfaceToken, useExisting: LockedState}
+      ],
     });
 
     fixture = TestBed.createComponent(AppComponent);
     appComponent = fixture.componentInstance;
     debugElement = fixture.debugElement;
     htmlElement = debugElement.nativeElement;
-    target = new AppComponent();
     fixture.detectChanges();
   });
 

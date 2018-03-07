@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { MessageEnum } from './message.enum';
+import { PhoneContext } from './phone.context';
+import { AppState } from './app.state';
+import { DesktopState } from './desktop.state';
 
 @Component({
   selector: 'app-root',
@@ -9,45 +12,18 @@ import { MessageEnum } from './message.enum';
 export class AppComponent {
   message = MessageEnum.Locked;
 
+  constructor(private phoneContext: PhoneContext) {
+  }
+
   onHomeClick() {
-    if (this.message === MessageEnum.Locked) {
-      this.message = MessageEnum.Unlocked;
-      return;
-    }
-
-    if (this.message === MessageEnum.Unlocked) {
-      this.message = MessageEnum.Home;
-      return;
-    }
-
-    if (this.message === MessageEnum.App) {
-      this.message = MessageEnum.Home;
-      return;
-    }
-
-    if (this.message === MessageEnum.Desktop) {
-      this.message = MessageEnum.Home;
-      return;
-    }
-
-    this.message = MessageEnum.Home;
+    this.message = this.phoneContext.request();
   }
 
   onOpenAppClick() {
-    if (this.message === MessageEnum.Home || this.message === MessageEnum.Desktop) {
-      this.message = MessageEnum.App;
-      return;
-    }
-
-    this.message = MessageEnum.Null;
+    this.message = this.phoneContext.setState(new AppState());
   }
 
   onSwitchDesktopClick() {
-    if (this.message === MessageEnum.Home) {
-      this.message = MessageEnum.Desktop;
-      return;
-    }
-
-    this.message = MessageEnum.Null;
+    this.message = this.phoneContext.setState(new DesktopState());
   }
 }
